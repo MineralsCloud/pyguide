@@ -4,10 +4,10 @@
 
 ## PyPI packages not in the standard library:
 
-- **[`virtualenv`][1]** is a very popular tool that creates isolated Python
-environments for Python libraries. If you're not familiar with this tool, I
-highly recommend learning it, as it is a very useful tool, and I'll be making
-comparisons to it for the rest of this answer.
+- [`virtualenv`][1] is a very popular tool that creates isolated Python
+  environments for Python libraries. If you're not familiar with this tool, I
+  highly recommend learning it, as it is a very useful tool, and I'll be making
+  comparisons to it for the rest of this answer.
 
   It works by installing a bunch of files in a directory (eg: `env/`), and then
   modifying the `PATH` environment variable to prefix it with a custom `bin`
@@ -18,54 +18,66 @@ comparisons to it for the rest of this answer.
   Packaging Authority). Once activated, you can install packages in the virtual
   environment using `pip`.
 
-- **[`pyenv`][2]** is used to isolate Python versions. For example, you may
-want to test your code against Python 2.6, 2.7, 3.3, 3.4 and 3.5, so you'll
-need a way to switch between them. Once activated, it prefixes the `PATH`
-environment variable with `~/.pyenv/shims`, where there are special files
-matching the Python commands (`python`, `pip`). These are not copies of the
-Python-shipped commands; they are special scripts that decide on the fly
-which version of Python to run based on the `PYENV_VERSION` environment
-variable, or the `.python-version` file, or the `~/.pyenv/version` file.
-`pyenv` also makes the process of downloading and installing multiple Python
-versions easier, using the command `pyenv install`.
+- [`pyenv`][2] is used to isolate Python versions. For example, you may want to
+  test your code against Python 2.6, 2.7, 3.3, 3.4 and 3.5, so you'll need a way
+  to switch between them. Once activated, it prefixes the `PATH` environment
+  variable with `~/.pyenv/shims`, where there are special files matching the
+  Python commands (`python`, `pip`). These are not copies of the Python-shipped
+  commands; they are special scripts that decide on the fly which version of
+  Python to run based on the `PYENV_VERSION` environment variable, or the
+  `.python-version` file, or the `~/.pyenv/version` file. `pyenv` also makes the
+  process of downloading and installing multiple Python versions easier, using
+  the command `pyenv install`.
 
-- **[`pyenv-virtualenv`][3]** is a plugin for `pyenv` by the same author as
-`pyenv`, to allow you to use `pyenv` and `virtualenv` at the same time
-conveniently. However, if you're using Python 3.3 or later,
-`pyenv-virtualenv` will try to run `python -m venv` if it is available,
-instead of `virtualenv`. You can use `virtualenv` and `pyenv` together
-without `pyenv-virtualenv`, if you don't want the convenience features.
+- [`pyenv-virtualenv`][3] is a plugin for `pyenv` by the same author as `pyenv`,
+  to allow you to use `pyenv` and `virtualenv` at the same time conveniently.
+  However, if you're using Python 3.3 or later, `pyenv-virtualenv` will try to
+  run `python -m venv` if it is available, instead of `virtualenv`. You can use
+  `virtualenv` and `pyenv` together without `pyenv-virtualenv`, if you don't
+  want the convenience features.
 
-- **[`virtualenvwrapper`][4]** is a set of extensions to `virtualenv` (see
-[docs][5]). It gives you commands like `mkvirtualenv`, `lssitepackages`, and
-especially `workon` for switching between different `virtualenv` directories.
-This tool is especially useful if you want multiple `virtualenv` directories.
+- [`virtualenvwrapper`][4] is a set of extensions to `virtualenv` (see
+  [docs][5]). It gives you commands like `mkvirtualenv`, `lssitepackages`, and
+  especially `workon` for switching between different `virtualenv` directories.
+  This tool is especially useful if you want multiple `virtualenv` directories.
 
-- **[`pyenv-virtualenvwrapper`][6]** is a plugin for `pyenv` by the same author
-as `pyenv`, to conveniently integrate `virtualenvwrapper` into `pyenv`.
+- [`pyenv-virtualenvwrapper`][6] is a plugin for `pyenv` by the same author as
+  `pyenv`, to conveniently integrate `virtualenvwrapper` into `pyenv`.
 
-- **[`pipenv`][7]**, by Kenneth Reitz (the author of `requests`), is the newest
-project in this list. It aims to combine `Pipfile`, `pip` and `virtualenv`
-into one command on the command-line. The `virtualenv` directory typically
-gets placed in `~/.local/share/virtualenvs/XXX`, with `XXX` being a hash of
-the path of the project directory. This is different from `virtualenv`, where
-the directory is typically in the current working directory.
+- [`pipenv`][7], by Kenneth Reitz (the author of `requests`), is the newest
+  project in this list. It aims to combine `Pipfile`, `pip` and `virtualenv`
+  into one command on the command-line. The `virtualenv` directory typically
+  gets placed in `~/.local/share/virtualenvs/XXX`, with `XXX` being a hash of
+  the path of the project directory. This is different from `virtualenv`, where
+  the directory is typically in the current working directory.
 
   The Python Packaging Guide [recommends `pipenv`][8] when developing Python
-  applications (as opposed to libraries). There does not seem to be any plans
-  to support `venv` instead of `virtualenv` ([#15][9]). Confusingly, its
-  command-line option `--venv` refers to the `virtualenv` directory, not
-  `venv`, and similarly, the environment variable `PIPENV_VENV_IN_PROJECT`
-  affects the location of the `virtualenv` directory, not `venv` directory
-  ([#1919][10]).
+  applications (as opposed to libraries). There does not seem to be any plans to
+  support `venv` instead of `virtualenv` ([#15][9]). Confusingly, its
+  command-line option `--venv` refers to the `virtualenv` directory, not `venv`,
+  and similarly, the environment variable `PIPENV_VENV_IN_PROJECT` affects the
+  location of the `virtualenv` directory, not `venv` directory ([#1919][10]).
+
+- [`pipx`](https://github.com/pipxproject/pipx) is a tool to help you install
+  and run end-user applications written in Python. `pipx` **is not** a tool for
+  development or publishing of your code -- it's only for consuming already
+  published packages.
+
+  `pipx` enables you to:
+
+  - Safely install packages to isolated environments, while globally exposing
+    their CLI entry points so you can run them from anywhere.
+  - Easily list, upgrade, and uninstall packages that were installed with
+    `pipx`.
+  - Run the latest version of a Python application in a temporary environment.
 
 ## Standard library:
 
-- **`pyvenv`** is a script shipped with Python 3 but [deprecated in Python
+- `pyvenv` is a script shipped with Python 3 but [deprecated in Python
   3.6][11] as it had problems (not to mention the confusing name). In Python
   3.6+, the exact equivalent is `python3 -m venv`.
 
-- **[`venv`][12]** is a package shipped with Python 3, which you can run using
+- [`venv`][12] is a package shipped with Python 3, which you can run using
   `python3 -m venv` (although for some reason some distros separate it out into
   a separate distro package, such as `python3-venv` on Ubuntu/Debian). It serves
   a similar purpose to `virtualenv`, and works in a very similar way, but it
