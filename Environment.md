@@ -61,25 +61,14 @@
 - [`pipx`](https://github.com/pipxproject/pipx) is a tool to help you install
   and run end-user applications written in Python. `pipx` **is not** a tool for
   development or publishing of your code -- it's only for consuming already
-  published packages.
-
-  `pipx` enables you to:
-
-  - Safely install packages to isolated environments, while globally exposing
-    their CLI entry points so you can run them from anywhere.
-  - Easily list, upgrade, and uninstall packages that were installed with
-    `pipx`.
-  - Run the latest version of a Python application in a temporary environment.
+  published packages. `pipx` enables you to safely install packages to isolated
+  environments, while globally exposing their CLI entry points so you can run
+  them from anywhere. It can also run the latest version of a Python application
+  in a temporary environment.
 
 - [`tox`](https://github.com/tox-dev/tox) is a generic `virtualenv` management
-  and test command line tool you can use for:
-
-  - Checking your package installs correctly with different Python versions and
-    interpreters.
-  - Running your tests in each of the environments, configuring your test tool
-    of choice.
-  - Acting as a frontend to Continuous Integration servers, greatly reducing
-    boilerplate and merging CI and shell-based testing.
+  and test command-line tool you can use for checking your package
+  installs correctly with different Python versions and interpreters.
 
 ## Standard library:
 
