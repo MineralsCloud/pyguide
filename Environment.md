@@ -1,6 +1,6 @@
 # Python environment
 
-# [What is the difference between `venv`, `pyvenv`, `pyenv`, `virtualenv`, `virtualenvwrapper`, `pipenv`, `pipx`, etc?](https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe)
+# [What is the difference between `venv`, `pyvenv`, `pyenv`, `virtualenv`, `virtualenvwrapper`, `pipenv`, `pipx`, `tox`, etc?](https://stackoverflow.com/questions/41573587/what-is-the-difference-between-venv-pyvenv-pyenv-virtualenv-virtualenvwrappe)
 
 ## PyPI packages not in the standard library:
 
@@ -70,6 +70,16 @@
   - Easily list, upgrade, and uninstall packages that were installed with
     `pipx`.
   - Run the latest version of a Python application in a temporary environment.
+
+- [`tox`](https://github.com/tox-dev/tox) is a generic `virtualenv` management
+  and test command line tool you can use for:
+
+  - Checking your package installs correctly with different Python versions and
+    interpreters.
+  - Running your tests in each of the environments, configuring your test tool
+    of choice.
+  - Acting as a frontend to Continuous Integration servers, greatly reducing
+    boilerplate and merging CI and shell-based testing.
 
 ## Standard library:
 
